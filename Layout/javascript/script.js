@@ -67,8 +67,46 @@ iconEye.addEventListener('click',()=>{
 let escolaridade = document.querySelectorAll("input[name=escolaridade]")
 let btnEscolaridade = document.querySelector("#btnEscolaridade")
 
-btnEscolaridade.addEventListener("click",()=>{
-    console.log(escolaridade)
+btnEscolaridade.addEventListener("click",(evento)=>{
+    evento.preventDefault()// IMPEDINDO O BOTÃO DE EXECUTAR O COMPORTAMENTO PADRÃO
+    let cont = 0
+   for(elementos of escolaridade){
+    if(elementos.checked){
+        alert(`Sua escolaridade é ${elementos.value}`)
+    }
+    else{
+        cont++
+    }
+   }
+   if(cont == 3){
+    alert("Você tem que escolher uma escolaridade")
+   }
+})
+
+/* EXIBINDO TERMOS DO CONTRATO */
+
+let contrato = document.querySelector("#contrato")
+let escolha = document.querySelector("#escolha")
+contrato.classList.add("d-none")
+escolha.addEventListener("change", ()=>{
+    if(escolha.checked){
+        contrato.classList.remove("d-none")
+        contrato.classList.add("d-block")
+    }
+    else{
+        contrato.classList.remove("d-block")
+        contrato.classList.add("d-none")
+    }
+})
+
+let concordo = document.querySelector("#concordo")
+concordo.addEventListener("click", ()=>{
+    if(concordo.checked){
+        alert("Parabens, contrato fechado")
+    }
+    else{
+        alert("Tem certeza que não vai fechar o contrato?")
+    }
 })
    
     
