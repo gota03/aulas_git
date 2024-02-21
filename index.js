@@ -1,2 +1,3 @@
-console.log('testando')
-console.log('testando novamente')
+console.log('testando');
+console.log('testando com o git web');
+console.log('testando com o git local');
